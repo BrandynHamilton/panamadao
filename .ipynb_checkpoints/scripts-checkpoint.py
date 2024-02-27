@@ -128,7 +128,7 @@ WITH auctions AS (
 seed_funding AS (
     SELECT 
         date_trunc('Month', BLOCK_TIMESTAMP) AS month, 
-        SUM(ETH_VALUE) AS eth_value
+        SUM(VALUE) AS eth_value
     FROM ethereum.core.fact_traces
     WHERE TO_ADDRESS = lower('0xf1dA938Cbf912b9e5444F6532C20A58d09Dd67B8')
     GROUP BY date_trunc('Month', BLOCK_TIMESTAMP)

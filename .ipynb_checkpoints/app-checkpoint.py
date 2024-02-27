@@ -11,22 +11,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import time
 from scripts import balance_sheet_sql, income_statement_sql
-#from panamadao_staking import balance_sheet_sql, income_statement_sql
-import pandas as pd
-import numpy as np
-from statsmodels.tsa.arima.model import ARIMA
-import plotly.graph_objects as go
-import streamlit as st
-from pandas.tseries.offsets import MonthEnd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-import pandas as pd
-import numpy as np
-import plotly.graph_objects as go
-import streamlit as st
 
-api_key = "4604d4d2-ccf3-4864-90b4-db6bf13c663b"
-api_key_dune = 'w3Tusb5XCOyAMb2ggKHkKuVERuXHnwyW'
+api_key = st.secrets["api_key"]
+api_key_dune = st.secrets["api_key_cg"]
 
 @st.cache_data()
 def createQueryRun(sql):
@@ -251,7 +238,7 @@ def app_page():
     #plt.title('Histogram of Auction Revenue USD')  # Optional: Add a title
 
 
-    data = cumulative_revenue_sources[['auction_revenue_usd', 'staking revenue','Other Income (Equity)']]
+    data = cumulative_revenue_sources[['auction_revenue_usd', 'staking revenue']]
     values = data.values.flatten()  # Ensure the values are in the correct shape (flatten if necessary)
     fig1 = go.Figure(data=[go.Pie(labels=data.index, values=data.values.flatten())])
     fig1.update_traces(hoverinfo='label+percent', textinfo='value+percent', textfont_size=20)
@@ -266,23 +253,7 @@ def app_page():
     
     
     
-    st.subheader('Summary')
-    st.write("""
-    Our analysis focused on the potential financial benefits of staking 50% of PanamaDAO's ETH treasury.
-    Staking is an investment strategy where cryptocurrency is locked to receive rewards, similar to earning interest in a savings account.
-
-    We examined the change in net income due to compounded staking returns, termed compound_interest_percent_chg.
-    Staking has the potential to enhance net income, providing additional revenue beyond regular operations.
-
-    The compound_interest_percent_chg ranged from a modest 0.19% to a significant 128%, indicating varying monthly income enhancements due to staking.
-    In several months, staking revenue surpassed auction revenue, highlighting its potential as a substantial income source.
-    On average, staking added a 4.48% return to the net income, contributing to an additional $658.53 over the observed period.
-    
-    """)
-    st.subheader('Reccomendations')
-    st.write(""" - Consider staking as part of the treasury management strategy to diversify and stabilize income streams.""")
-    
-    st.write("""- Use the slider at the top to adjust the staked percentage based on the DAO's operational needs and market conditions to optimize returns.""")           
+      
     
     
     
@@ -458,9 +429,7 @@ The auction revenue summary provides insights into the variability and spread of
         
 
 
-    st.subheader('Balance Sheet Analysis')
-    st.write('Actual vs Simulated Assets')
-    st.dataframe(formatted_balance_sheet, use_container_width=True)
+    
 
 
     

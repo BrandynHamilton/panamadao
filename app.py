@@ -314,7 +314,7 @@ def app_page():
     st.write("""
     
         
-The auction revenue summary provides insights into the variability and spread of monthly earnings. The mean and standard deviation highlight overall performance and fluctuation, respectively. The median and quartile values offer a deeper understanding of the distribution, with the median showing the middle point of revenue, and quartiles revealing the range within which the majority of revenues fall, indicating periods of both lower and higher earnings.
+The auction and staking revenue summaries provide insights into the variability and spread of monthly earnings. The mean and standard deviation highlight overall performance and fluctuation, respectively. The median and quartile values offer a deeper understanding of the distribution, with the median showing the middle point of revenue, and quartiles revealing the range within which the majority of revenues fall, indicating periods of both lower and higher earnings.
 
 
 
@@ -359,7 +359,7 @@ The auction revenue summary provides insights into the variability and spread of
 
     st.write('''
 
-    The comparison of actual and simulated net incomes illustrates the potential impact of compounded staking interest on the DAO's financial performance. By analyzing the shifts from actual to simulated figures, stakeholders can gauge how staking contributions might mitigate losses or amplify profits across different periods. This analysis underscores the strategic value of staking in enhancing the DAO's overall financial health, suggesting a nuanced approach to managing and optimizing staking practices for better fiscal outcomes.
+    The comparison of actual and simulated net incomes illustrates the potential impact of compounded staking interest on the DAO's financial performance.
 
 
 
@@ -403,7 +403,7 @@ The auction revenue summary provides insights into the variability and spread of
 
     compound_formatted = income_stmt_sim[['compound_interest_percent_chg']].iloc[::-1].style.format("{0:.2%}")
     st.write("""
-    The compound_interest_percent_chg metric in our income statements quantifies the impact of compounded staking returns on our DAO's net income, highlighting how staking enhances financial performance beyond standard operations. For example, a 33% increase in August 2023 signifies substantial growth in net income solely from staking. This data underscores staking's contribution to our financial expansion, illustrating its potential as a robust income stream.
+    The compound_interest_percent_chg metric quantifies the impact of compounded staking returns on the DAO's net income, highlighting how staking enhances financial performance beyond standard operations. For example, a 33% increase in August 2023 signifies substantial growth in net income solely from staking. This data underscores staking's contribution to our financial expansion, illustrating its potential as a robust income stream.
 
 
 

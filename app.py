@@ -54,7 +54,7 @@ def createQueryRun(sql):
     return response_data, query_run_id
 
 @st.cache_data()
-def getQueryResults(query_run_id, attempts=5, delay=10):
+def getQueryResults(query_run_id, attempts=10, delay=30):
     """Fetch query results with retries for asynchronous completion."""
     url = "https://api-v2.flipsidecrypto.xyz/json-rpc"
     payload = json.dumps({
